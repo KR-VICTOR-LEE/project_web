@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM에서 노드(태그) 추가하기</title>
+</head>
+
+<body>
+    <ul id="myList">
+        <li>Coffee</li>
+        <li>Tea</li>
+    </ul>
+    <button onclick="myFunction(); this.onclick=' ' ">실행</button> // 자기자신 버튼 클랙햇을때 호출 후 호출 x
+
+    <script>
+        function myFunction() {
+            // 노드 추가 함수 - createElement();
+            let newLi = document.createElement("li");
+            let textNode = document.createTextNode("Water");
+            newLi.appendChild(textNode); // li에 Water를 연결(추가)
+            // <li> Water</li>
+
+            // <ul> 안에 포함시키기
+            let list = document.getElementById("myList");
+            list.appendChild(newLi);
+        }
+    </script>
+</body>
+
+</html>

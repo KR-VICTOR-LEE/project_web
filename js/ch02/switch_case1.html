@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch_case</title>
+    <script>
+        // 금 은 동 , 메달없음
+        let rank = prompt("점수 입력");
+        let grade;
+        switch (rank/1) {
+            case 1:
+                grade = "금메달"
+                break;
+            case 2:
+                grade = "은메달"
+                break;
+            case 3:
+                grade = "동메달"
+                break;
+            default:
+                grade = "메달없음"
+        }
+        document.write(grade+"<br>");
+
+
+        if(rank == 1){
+            grade = "금메달";
+        }else if(rank ==2){
+            grade = "은메달";
+        }else if(rank == 3){
+            grade = "동메달";
+        }else{
+            grade = "메달없음";
+        }
+        document.write(grade);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

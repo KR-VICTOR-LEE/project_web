@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if문</title>
+    <script>
+        let limit_speed = prompt("속도 입력");
+        let result;
+
+        // if(limit_speed >= 50){
+        //     // document.write("속도위반");
+        //     result = "속도위반 <br>";
+        // }else{
+        //     // document.write("속도준수");
+        //     result = "속도준수 <br>11";
+        // }
+        // document.write(result);
+        // document.write("현재속도는 "+limit_speed+"km입니다");
+        
+        result = (limit_speed >=50)? "속도위반" :"속도준수 <br>";
+        document.write(result);
+        document.write("현재속도는 "+limit_speed+"km입니다");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

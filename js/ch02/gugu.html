@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    
+</head>
+<body>
+    <div class="menu">
+   <h1>구구단</h1>
+</div>
+<div id="rect"></div>
+<script>
+    let dan = prompt("단 입력");
+    let result = "";
+    // for(let i=1; i<10;i++){
+    //     document.write(num+" * "+i+" = "+num*i+"<br>");
+    // }
+
+    // for(let a=2;a<10;a++){
+    //     document.write("====="+a+"단=====<br><br>");
+    //     for(let b=1;b<10;b++){
+    //         document.write(a+" * "+b+" = "+a*b+"<br>")
+    //     }
+    //     document.write("<br>");
+    // }
+    for(let i=1; i<10; i++){
+        // result += dan +"x" + i + "="+ dan * i+"<br>";
+        let current_value = dan +"x" + i + "="+ dan * i+"<br>";
+        result += current_value;
+    }
+    document.getElementById("rect").innerHTML = result;
+</script>
+</body>
+</html>

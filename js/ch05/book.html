@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 객체</title> 
+    <script>
+        var book = {
+            title : "웹 표준의 정석",
+            author : "고경희",
+            pages : 650,
+            price : 30000,
+
+            info : function(){  //멤버 속성 접근은 this로 한다.
+                alert(this.title + " 책의 분량은 " +
+                 this.pages + "페이지 입니다.");
+            }
+        }
+        
+        book.info();   //book 객체로 접근
+    </script>
+</head>
+<body>
+  
+</body>
+</html>

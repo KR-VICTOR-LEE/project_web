@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let limit_speed = prompt("속도입력");
+        // limit_speed = parseInt(limit_speed);
+        let result;
+
+        if (limit_speed == null) {
+            document.write("입력이 취소되었습니다.");
+        }
+        else {
+            if (parseInt(limit_speed >= 50)) {
+                result = "속도위반<br>";
+            } else {
+                result = "속도 준수 <br>";
+            }
+        }
+        document.write(result);
+        document.write("현재속도 " + limit_speed);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
