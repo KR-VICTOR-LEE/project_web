@@ -8,14 +8,14 @@ public class CardTest {
 		Card card2 = new Card();
 		Card card3 = new Card();
 		
-		
 		System.out.println("카드번호: " + card1.getCardNum());
 		System.out.println("카드번호: " + card2.getCardNum());
 		System.out.println("카드번호: " + card3.getCardNum());
 		
-		System.out.println(card1);
+		System.out.println(card1);  //인스턴스 card1의 주소
 		System.out.println(card2);
 		System.out.println(card3);
+
 	}
 
 }
