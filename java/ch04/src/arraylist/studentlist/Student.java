@@ -1,45 +1,42 @@
 package arraylist.studentlist;
 
 import java.util.ArrayList;
-import arraylist.scorelist.Subject;
+import arraylist.Subject;
 
 public class Student {
-	//field 필드(멤버 변수)
-	int studentId;       //학번
-	String studentName;  //이름
-	ArrayList<Subject> subjectList;	
+	int studentId;
+	String studentName;
+	ArrayList<Subject> subjectList;
 	
-	//생성자
 	public Student(int studentId, String studentName) {
 		this.studentId = studentId;
 		this.studentName = studentName;
 		subjectList = new ArrayList<>();
 	}
 	
-	//과목 추가
+	//과목 추가 메서드
 	public void addSubject(String name, int score) {
-		Subject subject = new Subject();  //과목 객체 생성
-		subject.setSubjectName(name);     //과목이름 입력
-		subject.setScorePoint(score);     //점수 입력
-		
-		subjectList.add(subject);  //객체를 어레이리스트에 저장
+		Subject subject = new Subject(); //과목 객체 생성
+		subject.setSubjectName(name);
+		subject.setScorePoint(score);		
+		subjectList.add(subject);  //어레이리스트에 추가
 	}
 	
-	//학생 정보 출력
+	//학생 정보 출력 메서드
 	public void showInfo() {
-		int total = 0;  //총점
-		double avg;
+		int sumV = 0;  //총점
+		double avg;    //평균
 		
+		//정보 출력
 		for(int i=0; i<subjectList.size(); i++) {
 			Subject subject = subjectList.get(i);
-			//총점 계산
-			total += subject.getScorePoint();
-			System.out.printf("학생 %s의 %s 과목의 성적은 %d점입니다\n",
+			sumV += subject.getScorePoint();  //점수 합계
+			
+			System.out.printf("학생 %s의 %s 과목 성적은 %d점입니다.\n", 
 					studentName, subject.getSubjectName(), subject.getScorePoint());
 		}
-		//평균 계산
-		avg = (double)total / subjectList.size();
-		System.out.printf("학생 %s의 총점은 %d점이고, 평균은 %.2f점입니다.\n", 
-				studentName, total, avg);
+		avg = (double)sumV / subjectList.size();  //평균
+		System.out.printf("학생 %s의 과목 총점은 %d점이고, 과목 평균은 %.1f점입니다.\n", 
+				studentName, sumV, avg);
 	}
 }

@@ -76,11 +76,10 @@ public class Main1 {
 		System.out.println(account.getBalance());*/
 		
 		for(int i=0; i<accountArray.length; i++) { //전체 배열을 반복하면서
-			Account account = accountArray[i];  //출력할 계좌 생성
-			if(account != null) { //null 오류 처리
-				System.out.print("계좌번호: " + account.getAno() + "\t");
-				System.out.print("계좌주: " + account.getOwner() + "\t");
-				System.out.println("잔액: " + account.getBalance());
+			if(accountArray[i] != null) { //null 오류 처리
+				System.out.print("계좌번호: " + accountArray[i].getAno() + "\t");
+				System.out.print("계좌주: " + accountArray[i].getOwner() + "\t");
+				System.out.println("잔액: " + accountArray[i].getBalance());
 			}
 		}
 	}
@@ -117,10 +116,9 @@ public class Main1 {
 		System.out.print("출금액: ");
 		int money = Integer.parseInt(scanner.nextLine());
 		
-		if(findAccount(ano) != null) { // 계좌를 찾았다면 (반환값이 있다면)
+		if(findAccount(ano) != null) {
 			//예금 = 잔고 - 출금액
 			Account account = findAccount(ano);
-			
 			account.setBalance(account.getBalance() - money);
 			System.out.println("결과 : 정상 처리되었습니다.");
 		}else {
