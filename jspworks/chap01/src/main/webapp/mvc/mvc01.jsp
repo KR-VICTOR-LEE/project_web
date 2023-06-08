@@ -1,20 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	int num = 0;
-	if(request.getParameter("num") != null){
-		num = Integer.parseInt(request.getParameter("num"));
-	}
-	
-	String result = "";
-	if(num % 2 == 0){
-		result = "짝수";
-	}
-	else{
-		result = "홀수";
-	}
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MVC 예제</title>
+</head>
 <body>
-	<%=result %>
+	<h3>${season}</h3>
+	
+<%-- 	<h3>${seasons[0]}</h3>
+	<h3>${seasons[1]}</h3>
+	<h3>${seasons[2]}</h3>
+	<h3>${seasons[3]}</h3>
+	 --%>
+	<!-- 반복문 출력 -->
+	<c:forEach var="season" items="${seasons}">
+		<h3><c:out value="${season}"/></h3>
+	</c:forEach>
+	
+	<!-- numberList 출력 -->
+	<c:forEach var="number" items="${numberList}">	
+		<h3><c:out value="${number}"/></h3>
+	</c:forEach>
 </body>
 </html>

@@ -1,19 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>core 예제</title>
+<title>JSTL 예제</title>
 </head>
+<%
+	// 모델 생성
+	pageContext.setAttribute("cart", "계란");
+%>
 <body>
-	<c:set var="num" value="11" />
+
+	<h3>${cart}</h3>
+	<%-- 	<%
+		int num = 11;
+		if(num % 2 == 0){
+			out.println("짝수");
+		}else{
+			out.println("홀수");
+		}
+	%> --%>
+	<c:set var="num" value="11"></c:set>
 	<c:if test="${num % 2 == 0}">
-		<p>${num}은 짝수입니다</p>
+		<c:out value="${'짝수입니다.'}"></c:out>
 	</c:if>
 	<c:if test="${num % 2 == 1}">
-		<p>${num}은 홀수입니다</p>
+		<c:out value="${'홀수입니다.'}"></c:out>
 	</c:if>
+	<br>
+	<hr>
+	<p>구구단</p>
+	<!-- 구구단 5단 -->
+	<c:forEach var="i" begin="2" end="9">
+		<c:forEach var="j" begin="1" end="9">
+			<c:out value="${i} X ${j} = ${i*j}" />
+			<br>
+		</c:forEach>
+		<br>
+	</c:forEach>
 </body>
 </html>

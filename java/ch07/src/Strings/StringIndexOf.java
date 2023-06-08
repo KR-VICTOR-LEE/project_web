@@ -13,5 +13,12 @@ public class StringIndexOf {
 		}else {
 			System.out.println("자바와 관련이 없는 책입니다.");
 		}
+		// lastIndexOf()
+		String url = "/board/boardList.jsp";
+		int uri_idx1 = url.indexOf('/'); // 앞에있는 '/'
+		System.out.println(uri_idx1);
+		
+		int uri_idx2 = url.lastIndexOf('/'); // 뒤에있는 '/'
+		System.out.println(uri_idx2);
 	}
 }
