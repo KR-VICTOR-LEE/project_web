@@ -5,13 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숫자 표기</title>
 </head>
 <body>
-	<p> 숫자: <fmt:formatNumber value="3200100" /></p>
-	<p> <fmt:formatNumber value="3200100" type="number" />
-	<p> <fmt:formatNumber value="3200100" type="currency" currencySymbol="\\" />
-	<p> <fmt:formatNumber value="0.25" type="percent" />
-	<p> <fmt:formatNumber value="3200100" pattern="#,##0" />
+	<!-- 천단위 구분기호 표시 -->
+	<p>숫자 : <fmt:formatNumber value="3200100"/> </p>
+	<p><fmt:formatNumber value="3200100" type="number"/></p>
+	<p><fmt:formatNumber value="150200" pattern="#,##0.00"/></p>
+	
+	<!-- 통화 -->
+	<p><fmt:formatNumber value="3200100" type="currency" currencySymbol="\\"/></p>	
+	
+	<!-- 퍼센트 -->
+	<p><fmt:formatNumber value="0.25" type="percent"/>
 </body>
 </html>
