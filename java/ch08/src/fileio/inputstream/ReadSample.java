@@ -9,16 +9,18 @@ public class ReadSample {
 	public static void main(String[] args) throws IOException {
 		InputStream is = new FileInputStream("c:/file/test1.db");
 		
-		/* while(true) {
+		/*while(true) {
 			int data = is.read();
-			if(data == -1)
+			if(data == -1) 
 				break;
 			System.out.println(data);
-		} */
+		}*/
 		
 		int data;
 		while((data = is.read()) != -1) {
 			System.out.println(data);
 		}
+		
+		is.close();
 	}
 }
