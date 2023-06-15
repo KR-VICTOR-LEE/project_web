@@ -6,22 +6,23 @@
 <meta charset="UTF-8">
 <title>회원 가입</title>
 <link rel="stylesheet" href="resources/css/style.css">
+<script src="../resources/js/memberForm.js"></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div id="container">
 		<section id="register">
 			<h2>회원 가입</h2>
-			<form action="/addMember.do" method="post">
+			<form action="/addMember.do" method="post" name="member">
 				<fieldset>
 					<ul>
 						<li>
 							<label for="memberId">아이디 </label>
-							<input type="text" id="memberId" name="memberId">
+							<input type="text" id="memberId" name="memberId" placeholder="아이디는 4~15자까지 입력하세요!!">
 						</li>
 						<li>
 							<label for="passwd1">비밀번호 </label>
-							<input type="password" id="passwd1" name="passwd1">
+							<input type="password" id="passwd1" name="passwd1" placeholder="8자이상 특수문자 포함입니다.">
 						</li>
 						<li>
 							<label for="passwd2">비밀번호 확인</label>
@@ -43,7 +44,7 @@
 					</ul>
 				</fieldset>
 			<div class="button">
-				<input type="submit" value="가입">
+				<input type="button" value="가입" onclick="checkMember()">
 				<input type="reset" value="취소">
 			</div>
 			</form>

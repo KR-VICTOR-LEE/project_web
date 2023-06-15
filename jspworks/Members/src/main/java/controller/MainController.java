@@ -79,6 +79,10 @@ public class MainController extends HttpServlet {
 			newMember.setGender(gender);
 			
 			memberDAO.addMember(newMember); //회원 매개로 DB에 저장
+			// 가입 후 자동 로그인
+			session.setAttribute("sessionId", memberId);
+			nextPage = "/index.jsp";
+			
 			nextPage = "index.jsp";
 		}else if(command.equals("/memberView.do")) { //회원 정보 요청
 			
@@ -125,7 +129,8 @@ public class MainController extends HttpServlet {
 			nextPage = "/memberList.do";
 		} else if (command.equals("/memberEvent.do")) {
 			nextPage = "/member/memberEvent.jsp";
-		}
+		} 
+		
 		
 		
 		
