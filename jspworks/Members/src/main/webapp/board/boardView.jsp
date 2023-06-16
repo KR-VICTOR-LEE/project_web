@@ -25,8 +25,11 @@
 						</td>
 					</tr>
 					<tr>
+						<td>파일명 : ${board.fileUpload}</td>
+					</tr>
+					<tr>
 						<td>
-						<c:out value="글쓴이: ${board.memberId}" /> 
+						<c:out value="글쓴이 : ${board.memberId}" /> 
 						<c:choose>
 							<c:when test="${not empty board.modifyDate}">
 									(수정일: <fmt:formatDate value="${board.modifyDate}"

@@ -14,8 +14,16 @@ public class Board implements Serializable{
 	private Timestamp modifyDate;
 	private int hit;
 	private String memberId;
+	private String fileUpload;
 	
 	//getter, setter 메서드
+	
+	public String getFileUpload() {
+		return fileUpload;
+	}
+	public void setFileUpload(String fileUpload) {
+		this.fileUpload = fileUpload;
+	}
 	public int getBnum() {
 		return bnum;
 	}

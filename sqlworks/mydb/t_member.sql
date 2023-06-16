@@ -28,6 +28,9 @@ MAXVALUE 9999
 NOCYCLE
 NOCACHE;
 
+-- 파일 업로드 칼럼 추가
+alter table t_board add fileupload varchar2(100);
+
 INSERT INTO t_member(memberid, passwd, name, gender)
 VALUES ('cloud', 'm12345', '이경철', '남');
 
@@ -37,6 +40,10 @@ VALUES (b_seq.NEXTVAL, '가입인사', '안녕하세요. 반갑습니다.', 'clo
 COMMIT;
 SELECT * FROM t_member;
 SELECT * FROM t_board;
+
+-- id 중복체크
+select decode(count(*),1 , 'true', 'false') as result
+    from t_member where memberid = 'test';
 
 DROP TABLE t_board;  -- board 테이블 삭제
 DROP SEQUENCE b_seq; -- 시퀀스 삭제
