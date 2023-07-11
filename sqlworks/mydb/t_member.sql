@@ -45,5 +45,25 @@ SELECT * FROM t_board;
 select decode(count(*),1 , 'true', 'false') as result
     from t_member where memberid = 'test';
 
+-- 페이지 처리
+select rownum, t_board.*
+from t_board 
+where rownum >= 1 and rownum <= 10
+order by bnum desc;
+
+-- 페이지 처리
+select*
+from
+(select rownum RN, t_board.*
+from t_board order by bnum desc)
+where RN >= 1 and RN <= 10;
+-- order by bnum desc;
+
+
+
+-- 총 행의 수 
+select count(*) from t_board;
+
+
 DROP TABLE t_board;  -- board 테이블 삭제
 DROP SEQUENCE b_seq; -- 시퀀스 삭제

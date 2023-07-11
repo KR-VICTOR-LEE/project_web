@@ -62,7 +62,7 @@ SELECT *
 FROM 
     (SELECT ROWNUM rn, bno, title, content
     FROM board)
-WHERE rn >= 11 AND ROWNUM <= 20;  -- ROWNUM의 별칭을 사용하면 가능함
+WHERE rn >= 1 AND ROWNUM <= 10;  -- ROWNUM의 별칭을 사용하면 가능함
 
 -- ROWID
 -- 데이터를 구분하는 유일한 값
@@ -75,8 +75,11 @@ FROM board
 WHERE ROWID = 'AAAS1MAAHAAAAFrAAS';
 
 
+
+
 -- 시퀀스 삭제
 DROP SEQUENCE seq;
 
 -- 테이블 삭제
 DROP TABLE board;
+

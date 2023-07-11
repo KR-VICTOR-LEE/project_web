@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>회원 목록</title>
 <link rel="stylesheet" href="resources/css/style.css">
-<script src="../resources/js/event.js"></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -52,10 +51,13 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<h2>행운의 추첨(Good Luck)</h2>
-			<div class="Event_img">
-				<a href="/memberEvent.do"><img src="../resources/images/bronx.png" alt="쿠폰사진"></a>
-			</div>
+		
+		<h3>이벤트 추첨 링크</h3>
+		<div class="banner">
+			<a href="/memberEvent.do">
+				<img src="../resources/images/bronx.png" alt="한식뷔페">
+			</a>
+		</div>
 		</section>
 	</div>
 	<jsp:include page="../footer.jsp" />

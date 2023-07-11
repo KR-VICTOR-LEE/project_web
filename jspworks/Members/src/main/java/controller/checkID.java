@@ -12,32 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import member.MemberDAO;
 
 @WebServlet("/checkid")
-public class checkID extends HttpServlet {
+public class CheckID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public checkID() {
-		super();
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-
-		String id = request.getParameter("id");
-
+		
 		MemberDAO dao = new MemberDAO();
-		boolean duplicatedID = dao.duplicatedID(id);
-
-		if (duplicatedID == true) {
-			out.println("not_usable");
-		} else {
+		String id = request.getParameter("id");
+		int duplicatedID = dao.duplicatedID(id);
+		
+		if(duplicatedID==1) {	// 아이디가 중복되었으면
+			out.println("not_usable");	// not_usable
+		}else {
 			out.println("usable");
 		}
+		
+		/* boolean duplicatedID = dao.duplicatedID(id);
+		
+		if(duplicatedID==true) {	// 아이디가 중복되었으면
+			out.println("not_usable");	// not_usable
+		}else {
+			out.println("usable");
+		} */
+		
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doPost(request, response);
-	}
 }
