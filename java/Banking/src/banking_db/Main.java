@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void main(String[] args) {
-		AccountDao dao = new AccountDao();
+		AccountDAO dao = new AccountDAO();
 		Scanner scanner = new Scanner(System.in);
 		
 		boolean run = true;
@@ -30,10 +30,10 @@ public class Main {
 		    	dao.withdraw();
 		    }
 		    else if(selectNo.equals("5")){
-		    	dao.viewAccount();
+		    	dao.createAccount();
 		    }
 		    else if(selectNo.equals("6")){
-		    	dao.deleteAccount();
+		    	dao.createAccount();
 		    }
 		    else if(selectNo.equals("7")){
 		    	run = false;
