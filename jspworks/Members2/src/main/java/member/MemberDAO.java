@@ -48,7 +48,7 @@ public class MemberDAO {
 				member.setPasswd(rs.getString("passwd"));
 				member.setName(rs.getString("name"));
 				member.setGender(rs.getString("gender"));
-				member.setJoinDate(rs.getDate("joindate"));
+				member.setJoinDate(rs.getTimestamp("joindate"));
 				
 				memberList.add(member);  //리스트에 저장
 			}
@@ -74,7 +74,7 @@ public class MemberDAO {
 				member.setPasswd(rs.getString("passwd"));
 				member.setName(rs.getString("name"));
 				member.setGender(rs.getString("gender"));
-				member.setJoinDate(rs.getDate("joindate"));
+				member.setJoinDate(rs.getTimestamp("joindate"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -138,9 +138,52 @@ public class MemberDAO {
 		} finally {
 			JDBCUtil.close(conn, pstmt, rs);
 		}
+		
 		return result;
 	}
+	
+	//회원 수정
+	public void updateMember(Member member) {
+		conn = JDBCUtil.getConnection();
+		String sql = "UPDATE t_member SET passwd = ?, name = ?, gender = ? "
+				+ "WHERE memberid = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getPasswd());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getGender());
+			pstmt.setString(4, member.getMemberId());
+			pstmt.executeUpdate();  //수정 처리
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+	}
+	
+	//ID 중복 체크
+	/*public boolean duplicatedID(String memberId) {
+		boolean result = false;
+		conn = JDBCUtil.getConnection();
+		String sql = "SELECT DECODE(COUNT(*), 1, 'true', 'false') AS result "
+				+ "FROM t_member WHERE memberid = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getBoolean("result");  //칼럼이 result인 값을 꺼내옴
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}*/
 }
+
 
 
 

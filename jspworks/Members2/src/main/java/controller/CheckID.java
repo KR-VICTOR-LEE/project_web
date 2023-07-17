@@ -16,30 +16,32 @@ public class CheckID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		}
+		
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		MemberDAO dao = new MemberDAO();
 		String id = request.getParameter("id");
+		
 		int duplicatedID = dao.duplicatedID(id);
 		
-		if(duplicatedID==1) {	// 아이디가 중복되었으면
-			out.println("not_usable");	// not_usable
+		if(duplicatedID == 1) { //아이디가 중복되었으면
+			out.println("not_usable"); //not_usable 문자 전송
 		}else {
 			out.println("usable");
 		}
 		
-		/* boolean duplicatedID = dao.duplicatedID(id);
+		/*boolean duplicatedID = dao.duplicatedID(id);
 		
-		if(duplicatedID==true) {	// 아이디가 중복되었으면
-			out.println("not_usable");	// not_usable
+		if(duplicatedID==true) { //아이디가 중복되었으면
+			out.println("not_usable"); //not_usable 문자 전송
 		}else {
 			out.println("usable");
-		} */
-		
+		}*/
 	}
 
 }
