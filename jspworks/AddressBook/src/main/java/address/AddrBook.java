@@ -6,11 +6,13 @@ public class AddrBook implements Serializable{
 	
 	private static final long serialVersionUID = 10L;
 	
-	private String username;   //이름
-	private String tel;        //전화번호
-	private String email;      //이메일
-	private String gender;     //성별
+	//필드
+	private String username;  //이름
+	private String tel;       //전화번호
+	private String email;     //이메일
+	private String gender;    //성별
 	
+	//getter, setter 메서드
 	public String getUsername() {
 		return username;
 	}

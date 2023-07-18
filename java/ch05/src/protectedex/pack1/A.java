@@ -1,11 +1,9 @@
 package protectedex.pack1;
 
 public class A {
+	protected String filed;
 	
-	protected String field;
-	
-	protected A() {}
+	protected A(){}
 	
 	protected void method() {}
-	
 }

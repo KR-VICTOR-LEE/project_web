@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Board implements Serializable{
-	
+
 	private static final long serialVersionUID = 4L;
-	// 필드
+	//필드
 	private int bnum;
 	private String title;
 	private String content;
@@ -16,7 +16,7 @@ public class Board implements Serializable{
 	private String memberId;
 	private String fileUpload;
 	
-	// getter, setter 메서드
+	//getter, setter 메서드
 	public int getBnum() {
 		return bnum;
 	}

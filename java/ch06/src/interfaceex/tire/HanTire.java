@@ -1,5 +1,6 @@
 package interfaceex.tire;
 
+//Tire를 구현한 KumTire
 public class HanTire implements Tire{
 
 	@Override

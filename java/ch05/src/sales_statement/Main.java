@@ -1,17 +1,15 @@
 package sales_statement;
 
-import java.io.ByteArrayInputStream;
-
 public class Main {
 
 	public static void main(String[] args) {
+		// Drink 객체 생성
 		Drink coffee = new Drink("커피", 2500, 10);
 		Drink tea = new Drink("녹차", 3000, 4);
+		// Alcohol 객체 생성
+		Alcohol soju = new Alcohol("소주", 4000, 5, 15.5f);
 		
-		// Alcohol 객체 생성 
-		Alcohol soju = new Alcohol("소주", 4000, 5,16);
-		
-		Drink.printTitle(); //클래스 이름으로 접근	
+		Drink.printTitle(); //클래스 이름으로 직접 접근(제목)
 		coffee.printData();
 		tea.printData();
 		
@@ -20,12 +18,12 @@ public class Main {
 		Alcohol.printTitle();
 		soju.printData();
 		
-		// 총 판매금액
-		int total = coffee.getoTotalPrice() + tea.getoTotalPrice() + soju.getoTotalPrice();
+		//총 판매금액
+		int total = coffee.getTotalPrice() + tea.getTotalPrice()
+		            + soju.getTotalPrice();
 		
 		
-		System.out.println();
-		System.out.printf("\n*** 합계 금액 : %d원 ***", total);
+		System.out.printf("\n\n*** 합계 금액 : %,d원 ***\n", total);
 	}
 
 }

@@ -2,34 +2,36 @@ package inheritance.car;
 
 import java.util.ArrayList;
 
-
 public class CarArrayList {
 
 	public static void main(String[] args) {
-		ArrayList<Car> car = new ArrayList<>();
+		// 자동차 3대 생성 - ArrayList에 저장
+		ArrayList<Car> carList = new ArrayList<>();
 		
+		// 자동차 객체 생성
 		Car car1 = new Car("소나타", 2500);
-		Car car2 = new Car("아반떼", 1600);
-		Car car3 = new Car("산타페", 2000);
+		Car car2 = new Car("모닝", 1000);
+		Car car3 = new Car("BMW", 3000);
 		
-		// 자동객체저장
+		// 자동차 객체 저장
+		carList.add(car1);
+		carList.add(car2);
+		carList.add(car3);
 		
-		car.add(car1);
-		car.add(car2);
-		car.add(car3);
+		/* 익명 객체
+		carList.add(new Car("소나타", 2500));
+		carList.add(new Car("모닝", 1000));
+		carList.add(new Car("BMW", 3000));
+		*/
 		
+		// 특정한 요소 1개 검색
+		System.out.println(carList.get(1).carInfo());
 		
-//		car.add(new Car("소나타", 2000));
-//		car.add(new Car("아반떼", 1600));
-//		car.add(new Car("산타페", 2000));
-		
-		System.out.println(car.get(0).carInfo());
-		
-		for (int i = 0; i <car.size(); i++) {
-			Car a = car.get(i);
-			System.out.println(a.carInfo());
+		// 전체 요소 출력
+		for(int i=0; i<carList.size(); i++) {
+			Car car = carList.get(i);
+			System.out.println(car.carInfo());
 		}
-		
 	}
 
 }
