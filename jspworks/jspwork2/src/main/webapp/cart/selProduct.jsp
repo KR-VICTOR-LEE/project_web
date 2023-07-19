@@ -25,6 +25,9 @@
 			</select>
 			<button type="submit">추가</button>
 		</form>
+		<p>
+			<button type="submit" onclick="location.href='checkOut.jsp'">계산하기</button>
+		</p>
 	</div>
 </body>
 </html>
