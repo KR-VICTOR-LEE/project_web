@@ -7,7 +7,7 @@ create table product(
     p_unitPrice integer,
     p_description text,
     p_category varchar(20),
-    p_menufacturer varchar(20),
+    p_manufacturer varchar(20),
     p_unitsInStock long,
     p_condition varchar(20),
     p_productImage varchar(20)
@@ -21,3 +21,4 @@ insert into product values('P1234','iphone 14pro','1800000','123test123',
     commit;
     
     select * from product;
+  

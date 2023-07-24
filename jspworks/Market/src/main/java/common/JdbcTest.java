@@ -9,7 +9,7 @@ public class JdbcTest {
 	static String driverClass = "com.mysql.cj.jdbc.Driver";  //드라이버 이름
 	static String url = "jdbc:mysql://localhost:3306/javaweb"; //db 경로(위치)
 	static String username = "jweb";  //user 이름
-	static String password = "jweb";     //비밀번호
+	static String password = "jweb";  //비밀번호
 
 	public static void main(String[] args) {
 		//연결 객체 선언
