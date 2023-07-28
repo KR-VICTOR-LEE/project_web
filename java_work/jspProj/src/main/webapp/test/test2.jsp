@@ -17,6 +17,7 @@
 		
 		for(int i=0; i<cnt; i++){
 			nameArr[i] = request.getParameter("name"+i);
+			// 오류 부분. 
 			korArr[i] = Integer.parseInt(request.getParameter("kor"+i));
 			engArr[i] = Integer.parseInt(request.getParameter("eng"+i));
 			metArr[i] = Integer.parseInt(request.getParameter("kor"+i));
@@ -43,8 +44,8 @@
 			<td><%=korArr[i]%></td>
 			<td><%=engArr[i]%></td>
 			<td><%=metArr[i]%></td>
-			<td></td>
-			<td></td>
+			<td><%=sum %></td>
+			<td><%=avg %></td>
 		</tr>
 		
 		<%}%>

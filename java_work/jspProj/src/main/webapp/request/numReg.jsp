@@ -8,34 +8,32 @@
 <title>numReg</title>
 </head>
 <body>
-	<%
-		String [] noArr = request.getParameterValues("no");
-		
-		String no = request.getParameter("no");
-		
-		int result = Integer.parseInt(no);
-	%>
-		noArr : <%=Arrays.toString(noArr) %><br/>
-	<%
-		
-		int a = 0;
-		int b = 0;
-		int sum = 0;
-		for(String str : noArr){
-			int c = Integer.parseInt(str);
-			if(c%2 == 0){
-				a += c;
-			}else{
-				b += c;
-			}
-			sum += c;
-		}
-		out.print("홀수의 합 : " + b + "<br/>");
-		out.print("짝수의 합 : " + a + "<br/>");
-		out.print("수의 합 : " +sum + "<br/>");
-	%>
-		
-	
+<%
+	String [] noArr = request.getParameterValues("no");
 
+	int tot = 0;
+	for (String str : noArr) {
+		//System.out.println(str);
+		
+		try {
+			int i = Integer.parseInt(str);
+			
+			//짝수냐? 짝수 더하기가 안됍니다. 여기좀 풀어주세요
+			if(i % 2 == 0) {
+				tot += i;
+				//System.out.println("짝수만:"+i+","+tot);
+			}
+			
+		} catch (Exception e) {
+			
+			//System.out.println("에러 글자였다:"+str);
+		}
+		
+	}
+%>
+<h1>numReg</h1>
+no:<%=request.getParameter("no") %><br/>
+noArr:<%=Arrays.toString(noArr) %><br/>
+tot:<%=tot %>
 </body>
 </html>
