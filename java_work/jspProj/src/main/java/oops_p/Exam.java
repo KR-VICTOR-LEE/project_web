@@ -7,9 +7,7 @@ public class Exam {
 	String name, grade;
 	int [] jum;
 	int tot, avg, rank;
-	
 	public Exam(String name, String ... jum) {
-		
 		super();
 		this.name = name;
 		this.jum = new int [jum.length];
@@ -18,7 +16,6 @@ public class Exam {
 			this.jum[i] = Integer.parseInt(jum[i]);
 		}
 		calc();
-		
 	}
 	
 	void calc() {
@@ -40,9 +37,8 @@ public class Exam {
 				rank++;
 			}
 		}
-		
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Exam [name=" + name + ", jum=" + Arrays.toString(jum) + ", tot=" + tot + ", avg=" + avg + ", grade="
