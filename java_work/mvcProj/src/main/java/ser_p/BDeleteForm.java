@@ -6,13 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import control.BoardService;
 import model_p.BoardDAO;
 
-public class BDetail implements BoardService{
+public class BDeleteForm implements BoardService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("mainTitle", "게시판상세");
+		request.setAttribute("mainTitle", "게시판삭제");
 		System.out.println("BDetail.execute() 실행");
 		
-		int id = Integer.parseInt(request.getParameter("id"));
-		new BoardDAO().addCount(id);
-		request.setAttribute("mainData", new BoardDAO().detail(id));
+	
 	}
 }

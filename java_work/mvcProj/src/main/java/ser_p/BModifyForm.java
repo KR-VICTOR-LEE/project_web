@@ -6,13 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import control.BoardService;
 import model_p.BoardDAO;
 
-public class BDetail implements BoardService{
+public class BModifyForm implements BoardService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("mainTitle", "게시판상세");
-		System.out.println("BDetail.execute() 실행");
+		request.setAttribute("mainTitle", "게시판 수정");
+		System.out.println("BModifyForm.execute() 실행");
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		new BoardDAO().addCount(id);
 		request.setAttribute("mainData", new BoardDAO().detail(id));
 	}
 }

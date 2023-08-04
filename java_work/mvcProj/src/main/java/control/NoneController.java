@@ -9,41 +9,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/*")
-public class BoardController extends HttpServlet {
+/**
+ * Servlet implementation class NoneController
+ */
+@WebServlet("/noneJsp/*")
+public class NoneController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardController() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public NoneController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String serviceStr = request.getRequestURI().substring(
-				(request.getContextPath()+"/board/").length()
+				(request.getContextPath()+"/noneJsp/").length()
 				);
 		System.out.println(serviceStr);
 		
 		try {
-			request.setCharacterEncoding("UTF-8");
-
-			request.setAttribute("mainPage", serviceStr);
-			
-			
 			BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
 			service.execute(request,response);
 			
-			RequestDispatcher dispatcher = 
-					request.getRequestDispatcher("/views/template.jsp");
-			
-			dispatcher.forward(request, response);
 			
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 
 	/**
@@ -55,4 +53,3 @@ public class BoardController extends HttpServlet {
 	}
 
 }
-

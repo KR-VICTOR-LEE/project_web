@@ -27,6 +27,6 @@
 		<td colspan="5" align="center"></td>
 	</tr>
 	<tr>
-		<td colspan="5" align="right"><a href="BLwriteForm">글쓰기</a></td>
+		<td colspan="5" align="right"><a href="BWriteForm">글쓰기</a></td>
 	</tr>
 </table>
