@@ -1,7 +1,12 @@
+<%@page import="model_p.PageData"%>
 <%@page import="model_p.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
+<%
+	PageData pd = (PageData) request.getAttribute("pd");
+%>
 <form action="BWriteReg" method="post" enctype="multipart/form-data">
 	<table border="">
 		<tr>
@@ -26,7 +31,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="글쓰기" />
-				<input type="reset" value="취소" /> <a href="BList">목록으로</a></td>
+				<input type="reset" value="취소" /> <a href="BList?page=<%=pd.page%>">목록으로</a></td>
 		</tr>
 	</table>
 </form>

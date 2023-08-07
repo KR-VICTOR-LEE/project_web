@@ -1,4 +1,4 @@
-package ser_p;
+package gal_p;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

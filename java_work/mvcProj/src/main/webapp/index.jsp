@@ -9,6 +9,6 @@
 <body>
 	<h1>mvcPro</h1>
 	<a href="board/BList">게시판</a>
-	<a href="board/BDetail">게시판상세</a>
+	<!-- <a href="board/BDetail">게시판상세</a> -->
 </body>
 </html>

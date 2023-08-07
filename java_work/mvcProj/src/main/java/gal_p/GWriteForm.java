@@ -1,11 +1,11 @@
-package ser_p;
+package gal_p;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import control.BoardService;
 
-public class BWriteForm implements BoardService{
+public class GWriteForm implements BoardService{
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		

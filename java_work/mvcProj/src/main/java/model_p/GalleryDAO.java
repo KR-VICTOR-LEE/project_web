@@ -10,67 +10,53 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-
-public class BoardDAO {
-
+public class GalleryDAO {
 	Connection con;
 	PreparedStatement ptmt;
 	ResultSet rs;
+
 	String sql;
-	
-	public BoardDAO() {
+
+	public GalleryDAO() {
 		try {
 			Context init = new InitialContext();
-			DataSource ds = (DataSource)init.lookup("java:/comp/env/mvc322");
+			DataSource ds = (DataSource) init.lookup("java:/comp/env/mvc322");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-	
-	public ArrayList<BoardDTO> list(PageData pd){
-		
-		sql = "select * from board order by gid desc , seq limit ?, ?";
-		ArrayList<BoardDTO> res = new ArrayList<>();
+
+	public ArrayList<GalleryDTO> list() {
+		sql = "select * from gallery";
+		ArrayList<GalleryDTO> res = new ArrayList<>();
 		
 		try {
 			ptmt = con.prepareStatement(sql);
-			ptmt.setInt(1, pd.start);
-			ptmt.setInt(2, pd.limit);
 			rs = ptmt.executeQuery();
 			
-			while(rs.next()) {
-				BoardDTO dto = new BoardDTO();
-				dto.setId(rs.getInt("id"));
-				dto.setGid(rs.getInt("gid"));
-				dto.setCnt(rs.getInt("cnt"));
-				dto.setSeq(rs.getInt("seq"));
-				dto.setLev(rs.getInt("lev"));
-				dto.setPname(rs.getString("pname"));
-				dto.setPw(rs.getString("pw"));
+			while (rs.next()) {
+				GalleryDTO dto = new GalleryDTO();
+				dto.setFid(rs.getInt("fid"));
 				dto.setTitle(rs.getString("title"));
-				dto.setUpfile(rs.getString("upfile"));
-				dto.setContent(rs.getString("content"));
-				dto.setReg_date(rs.getTimestamp("reg_date"));
-				
+				dto.setFupfile(rs.getNString("fupfile"));
+				dto.setFcontent(rs.getNString("fcontent"));
+				dto.setCnt(rs.getInt("cnt"));
+			
 				res.add(dto);
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
-		 
 		return res;
 	}
-	
+
 public int totalCnt(){
 		
-		sql = "select count(*) from board";
+		sql = "select count(*) from gallery";
 		int res = 0;
 		try {
 
@@ -88,47 +74,37 @@ public int totalCnt(){
 	}
 	
 	
-	public BoardDTO detail(int id){
+	public GalleryDTO detail(int fid){
 		
-		sql = "select * from board where id = ?";
-		BoardDTO dto = null;
+		sql = "select * from gallery where fid = ?";
+		GalleryDTO dto = null;
 		
 		try {
 			ptmt = con.prepareStatement(sql);
-			ptmt.setInt(1, id);
+			ptmt.setInt(1, fid);
 			rs = ptmt.executeQuery();
 			
 			if(rs.next()) {
-				dto = new BoardDTO();
-				dto.setId(rs.getInt("id"));
-				dto.setGid(rs.getInt("gid"));
-				dto.setCnt(rs.getInt("cnt"));
-				dto.setSeq(rs.getInt("seq"));
-				dto.setLev(rs.getInt("lev"));
-				dto.setPname(rs.getString("pname"));
-				dto.setPw(rs.getString("pw"));
+				dto = new GalleryDTO();
+				dto.setFid(rs.getInt("fid"));
 				dto.setTitle(rs.getString("title"));
-				dto.setUpfile(rs.getString("upfile"));
-				dto.setContent(rs.getString("content"));
-				dto.setReg_date(rs.getTimestamp("reg_date"));
-				
-				
+				dto.setCnt(rs.getInt("cnt"));
+				dto.setFupfile(rs.getString("fupfile"));
+				dto.setFcontent(rs.getString("fcontent"));
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		 
 		return dto;
 	}
 	
 	
 	public void addCount(int id){
 		
-		sql = "update board set cnt = cnt + 1 where id = ?";
+		sql = "update gallery set cnt = cnt + 1 where fid = ?";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
@@ -143,39 +119,28 @@ public int totalCnt(){
 		}
 	}
 	
-	public void write(BoardDTO dto){
+	public void write(GalleryDTO dto){
 		
 		
 		
 		try {
-			sql = "select max(id)+1 from board";
+			sql = "select max(fid)+1 from gallery";
 			ptmt = con.prepareStatement(sql);
 			rs = ptmt.executeQuery();
 			rs.next();
-			dto.setId(rs.getInt(1));
+			dto.setFid(rs.getInt(1));
 			
 			
 			ptmt.close();
 			
-			sql = "insert into board " +
-					"(id, title, pname, pw, upfile, content, seq, lev, gid, cnt, reg_date) "+ 
-					 "values (?, ?, ?, ?, ?, ?, 0, 0, ? ,-1, sysdate() )";
+			/*
+			 * sql = "insert into board " +
+			 * "(id, title, pname, pw, upfile, content, seq, lev, gid, cnt, reg_date) "+
+			 * "values (?, ?, ?, ?, ?, ?, 0, 0, ? ,-1, sysdate() )";
+			 */
+		
 			
-			ptmt = con.prepareStatement(sql);
-			ptmt.setInt(1, dto.getId());
-			ptmt.setString(2, dto.getTitle());
-			ptmt.setString(3, dto.getPname());
-			ptmt.setString(4, dto.getPw());
-			ptmt.setString(5, dto.getUpfile());
-			ptmt.setString(6, dto.getContent());
-			ptmt.setInt(7, dto.getId());
-			ptmt.executeUpdate();
-			
-			
-			
-			
-			
-				
+							
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -184,15 +149,15 @@ public int totalCnt(){
 		}
 	}
 	
-	public int delete(BoardDTO dto){
+	public int delete(GalleryDTO dto){
 		
 		sql = "delete from board where id = ? and pw = ?";
 		int res = 0;
 		try {
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setInt(1, dto.getId());
-			ptmt.setString(2, dto.getPw());
+			ptmt.setInt(1, dto.getFid());
+			ptmt.setString(2, dto.getFpw());
 			
 			res = ptmt.executeUpdate();
 				
@@ -207,15 +172,15 @@ public int totalCnt(){
 	}
 	
 	
-	public void fileDelete(BoardDTO dto){
+	public void fileDelete(GalleryDTO dto){
 		
-		sql = "update board set upfile = null where id = ? and pw = ?";
+		sql = "update gallery set fupfile = null where fid = ? and fpw = ?";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setInt(1, dto.getId());
-			ptmt.setString(2, dto.getPw());
+			ptmt.setInt(1, dto.getFid());
+			ptmt.setString(2, dto.getFpw());
 			
 			ptmt.executeUpdate();
 				
@@ -230,22 +195,22 @@ public int totalCnt(){
 	
 	
 	
-	public BoardDTO idPwChk(BoardDTO dto){
+	public GalleryDTO idPwChk(GalleryDTO dto){
 		
-		sql = "select * from board where id = ? and pw = ?";
-		BoardDTO res = null;
+		sql = "select * from gallery where fid = ? and fpw = ?";
+		GalleryDTO res = null;
 		try {
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setInt(1, dto.getId());
-			ptmt.setString(2, dto.getPw());
+			ptmt.setInt(1, dto.getFid());
+			ptmt.setString(2, dto.getFpw());
 			
 			rs = ptmt.executeQuery();
 			
 			if(rs.next()) {
-				res = new BoardDTO();
-				res.setId(rs.getInt("id"));
-				res.setUpfile(rs.getString("upfile"));
+				res = new GalleryDTO();
+				res.setFid(rs.getInt("fid"));
+				res.setFupfile(rs.getString("fupfile"));
 			}
 				
 		} catch (SQLException e) {
@@ -343,8 +308,20 @@ public int totalCnt(){
 	
 	
 	public void close() {
-		if(rs!=null) try { rs.close();	} catch (Exception e) {}
-		if(ptmt!=null) try { ptmt.close();	} catch (Exception e) {}
-		if(con!=null) try { con.close();	} catch (Exception e) {}
+		if (rs != null)
+			try {
+				rs.close();
+			} catch (Exception e) {
+			}
+		if (ptmt != null)
+			try {
+				ptmt.close();
+			} catch (Exception e) {
+			}
+		if (con != null)
+			try {
+				con.close();
+			} catch (Exception e) {
+			}
 	}
 }

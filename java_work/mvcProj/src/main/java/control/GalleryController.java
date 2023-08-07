@@ -11,30 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import model_p.PageData;
 
-@WebServlet("/board/*")
-public class BoardController extends HttpServlet {
+@WebServlet("/gallery/*")
+public class GalleryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardController() {
+    public GalleryController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String serviceStr = request.getRequestURI().substring(
-				(request.getContextPath()+"/board/").length()
-				);
+		String serviceStr = request.getRequestURI().substring((request.getContextPath()+"/gallery/").length());
 		System.out.println(serviceStr);
 		
 		try {
-			request.setCharacterEncoding("UTF-8");
-			request.setAttribute("mainPage","board/"+ serviceStr);
+			
+			request.setCharacterEncoding("utf-8");
+			request.setAttribute("mainPage", "gallery/"+serviceStr);
+	
 			request.setAttribute("pd", new PageData(request)); // page
 			
-			BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
+			GalleryService service = (GalleryService)Class.forName("gal_p."+serviceStr).newInstance();
 			service.execute(request,response);
-			
-			
 			
 			RequestDispatcher dispatcher = 
 					request.getRequestDispatcher("/views/template.jsp");
@@ -44,9 +41,6 @@ public class BoardController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,4 +48,3 @@ public class BoardController extends HttpServlet {
 	}
 
 }
-

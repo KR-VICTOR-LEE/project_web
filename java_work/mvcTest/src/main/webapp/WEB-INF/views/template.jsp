@@ -12,7 +12,7 @@
 			<td><jsp:include page="inc/header.jsp"/></td>
 		</tr>
 		<tr>
-			<td><jsp:include page=""/></td>
+			<td><jsp:include page="<%=mainUrl %>"/></td>
 		</tr>
 		<tr>
 			<td><jsp:include page="inc/footer.jsp"/></td>
