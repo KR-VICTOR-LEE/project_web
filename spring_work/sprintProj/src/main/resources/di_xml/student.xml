@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<!--
+	<bean class="java.util.HashMap" name="std1">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value>국어</value></key>
+				</entry>
+				<entry>
+					<key><value>영수</value></key>
+				</entry>
+				<entry>
+					<key><value>수학</value></key>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean class="di_p.main.StudentMain" name="std">
+		<property name="name" value="학생1"/>
+		<property name="std1" ref="std1"/>
+		<property name="arr">
+			<list>
+				<value>80</value>
+				<value>80</value>
+				<value>80</value>
+			</list>
+		</property>
+		<property name="mm" ref="std1"/>
+	</bean>-->
+	
+	<bean class="di_p.Student" name="st1">
+		<property name="name" value="학생1"/>
+		<property name="arr">
+			<array>
+				<value>85</value>
+				<value>90</value>
+				<value>95</value>
+			</array>
+		</property>
+	</bean>
+	
+	<bean class="di_p.Student" name="st2">
+		<property name="name" value="학생2"/>
+		<property name="arr">
+			<array>
+				<value>75</value>
+				<value>80</value>
+				<value>55</value>
+			</array>
+		</property>
+	</bean>
+	<bean class="di_p.Student" name="st3">
+		<property name="name" value="학생3"/>
+		<property name="arr">
+			<array>
+				<value>95</value>
+				<value>80</value>
+				<value>65</value>
+			</array>
+		</property>
+	</bean>
+	
+	
+	
+<!--	<bean class="di_p.rank" name="rank">
+		<property name="students">
+			<list>
+				<ref bean="st1"/>
+				<ref bean="st2"/>
+				<ref bean="st3"/>
+				<ref bean="st4"/>
+				<ref bean="st5"/>
+			</list>
+		</property>
+	</bean>
+	-->
+</beans>
