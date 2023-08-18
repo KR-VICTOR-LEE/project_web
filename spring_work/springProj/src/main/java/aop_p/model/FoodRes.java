@@ -6,7 +6,6 @@ public class FoodRes {
 	ArrayList<FoodDate> list = new ArrayList<>(); 
 	
 	public void add() {
-		GreenFood gf = null;
 		
 	}
 }
