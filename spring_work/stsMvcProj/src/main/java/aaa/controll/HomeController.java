@@ -6,21 +6,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
+
 	@RequestMapping("/")
-	String homeGo()	{
-		System.out.println();
+	//@ResponseBody
+	String homeGo() {
+		System.out.println("홈이다");
 		//return "homehome";
-		return "index";
+		return "home";  // views/home.html
 		
-		/*
-		  application.yaml 설정
-		  Server : 
-		    port : 80
-		  spring : 
-			  thymeleaf:
-			    prefix : views/
-			    suffix : .html
-			    cache : false 
-		 */
+/*
+application.yaml 설정
+
+spring :
+  thymeleaf:
+    prefix : views/
+    suffix : .html
+    cache : false
+     
+ * */		
+		
 	}
 }

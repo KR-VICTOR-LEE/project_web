@@ -55,8 +55,6 @@ public class GalleryDTO {
 	public String toString() {
 		return "GalleryDTO [fpw=" + fpw + ", title=" + title + ", fupfile=" + fupfile + ", fcontent=" + fcontent
 				+ ", fid=" + fid + ", cnt=" + cnt + "]";
-	}
-	
-	
+	}	
 	
 }

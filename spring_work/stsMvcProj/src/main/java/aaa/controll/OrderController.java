@@ -10,14 +10,14 @@ import aaa.model.OrderData;
 @Controller
 @RequestMapping("request/order")
 public class OrderController {
+
 	@GetMapping
-	String orderForm()	{
-		
+	String orderForm() {
 		return "req/orderForm";
 	}
-
+	
 	@PostMapping
-	String orderReg(OrderData od)	{
+	String orderReg(OrderData od) {
 		System.out.println(od);
 		return "req/orderReg";
 	}
