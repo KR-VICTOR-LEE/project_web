@@ -94,12 +94,9 @@ public class FileController {
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(ff);
-			
 			fos.write(mf.getBytes());
-			
 			fos.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -111,7 +108,6 @@ public class FileController {
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
 			
 		try {
-			
 			FileOutputStream fos = new FileOutputStream(ff);
 			if (ff.isFile()) {
 				fos.write(mf.getBytes());

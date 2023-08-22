@@ -1,12 +1,17 @@
 package aaa.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 public class Member {
 	
-	String id, pw, name, address, tel;
-	int age;
+	String pid, pname, pw;
+
+	public Member(String pid, String pname, String pw) {
+		super();
+		this.pid = pid;
+		this.pname = pname;
+		this.pw = pw;
+	}
+
+	
+
+	
 }

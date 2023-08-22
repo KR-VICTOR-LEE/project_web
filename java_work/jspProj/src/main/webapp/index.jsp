@@ -20,6 +20,11 @@
 	<a href="err/ccc.jsp">500</a><br/>
 	<a href="err/ddd.jsp">404</a><br/>
 	<a href="err/eee.jsp">type</a><br/>
+	<a href="cookie/make.jsp">make</a><br/>
+	<a href="cookie/view.jsp">view</a><br/>
+	<a href="cookie/modify.jsp">modify</a><br/>
+	<a href="cookie/delete.jsp">delete</a><br/>
+	<a href="cookie/logMain.jsp">로그인메인</a><br/>
 	
 	
 </body>
