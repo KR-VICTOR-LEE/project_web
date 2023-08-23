@@ -7,13 +7,14 @@
 <title>make</title>
 </head>
 <body>
-	<h1>쿠키생성</h1>
-	<%
-		Cookie coo1 = new Cookie("pname","aaa");
-		Cookie coo2 = new Cookie("age","32");
-		
-		response.addCookie(coo1);
-		response.addCookie(coo2);
-	%>
+<h1>쿠키생성</h1>
+<%
+
+	Cookie coo1 = new Cookie("pname","aaa");
+	Cookie coo2 = new Cookie("age","32");
+	
+	response.addCookie(coo1);
+	response.addCookie(coo2);
+%>
 </body>
 </html>

@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ex02</title>
+<title>500 처리</title>
 </head>
 <body>
-	<h1>500 처리 입니다.</h1>
-	<%-- <%=exception.getMessage() %> --%>
-	<!-- exception 사용시 isErrorPage="true" 필요 -->
+<h1>500 처리 입니다.</h1>
+<%-- <%=exception.getMessage() %> --%>
+
 </body>
 </html>

@@ -7,13 +7,14 @@
 <title>include > a</title>
 </head>
 <body>
-<h2>include > a</h2>
+<h1>include > a</h1>
 <script type="text/javascript">
 	alert("돌아왔구나 칠태식이")
 </script>
 <%
 	request.setAttribute("pname", "fff");
+	
 %>
-<%-- <jsp:include page="b.jsp?age=34" />
- --%></body>
+<%-- <jsp:include page="b.jsp?age=34"/> --%>
+</body>
 </html>

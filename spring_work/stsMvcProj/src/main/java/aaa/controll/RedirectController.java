@@ -1,7 +1,5 @@
 package aaa.controll;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,13 +73,13 @@ public class RedirectController {
 	@RequestMapping("from6")
 	ModelAndView from6(Person per) {
 		
-		ModelAndView mav = new ModelAndView("Redirect:to");
-		
+		ModelAndView mav = new ModelAndView("redirect:to");
+		//mav.setViewName("redirect:to");
 		////---->
-		mav.addObject("id",per.getId());
-		mav.addObject("age",per.getAge());
-		mav.addObject("marriage"+per.isMarriage());
-		System.out.println("from6() 진입: "+per);
+		mav.addObject("id", per.getId());
+		mav.addObject("age", per.getAge());
+		mav.addObject("marriage", per.isMarriage());
+		System.out.println("from6() 진입:"+per);
 		////<----
 		
 		return mav;

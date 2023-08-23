@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>include > b</title>
+<title>forward > b</title>
 </head>
 <body>
-<h2>include > b</h2>
+<h1>forward > b</h1>
 pname:<%=request.getAttribute("pname") %><br/>
 age:<%=request.getParameter("age") %><br/>
 nick:<%=request.getParameter("nick") %><br/>

@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>redirect > b</title>
+<title>include > b</title>
 </head>
 <body>
-<h1>redirect > b</h1>
-pname:<%=request.getAttribute("ddd") %><br/>
+<h1>include > b</h1>
+pname:<%=request.getAttribute("pname") %><br/>
 age:<%=request.getParameter("age") %><br/>
 nick:<%=request.getParameter("nick") %><br/>
 </body>

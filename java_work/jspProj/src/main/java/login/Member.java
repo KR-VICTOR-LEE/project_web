@@ -2,26 +2,28 @@ package login;
 
 public class Member {
 	
-	String dbid, dbpw, dbPname;
+	String pid, pw, pname;
 
-	public Member(String dbid, String dbpw, String dbPname) {
+	public Member(String pid, String pw, String pname) {
 		super();
-		this.dbid = dbid;
-		this.dbpw = dbpw;
-		this.dbPname = dbPname;
+		this.pid = pid;
+		this.pw = pw;
+		this.pname = pname;
 	}
 
-	public String getDbid() {
-		return dbid;
+	public String getPid() {
+		return pid;
 	}
 
-	public String getDbpw() {
-		return dbpw;
+	public String getPw() {
+		return pw;
 	}
 
-	public String getDbPname() {
-		return dbPname;
+	public String getPname() {
+		return pname;
 	}
+
+	
 	
 	
 }

@@ -7,13 +7,14 @@
 <title>modify</title>
 </head>
 <body>
-	<h1>쿠키수정</h1>
-	<%
-		Cookie coo1 = new Cookie("pname","bbb");
-		Cookie coo2 = new Cookie("marriage","true");
-		
-		response.addCookie(coo1);
-		response.addCookie(coo2);
-	%>
+<h1>쿠키수정</h1>
+<%
+
+	Cookie coo1 = new Cookie("pname","bbb");
+	Cookie coo2 = new Cookie("marriage","true");
+	
+	response.addCookie(coo1);
+	response.addCookie(coo2);
+%>
 </body>
 </html>

@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+
 	int cnt = 5;
+
 	if(request.getParameter("cnt")!=null){
 		cnt = Integer.parseInt(request.getParameter("cnt"));
 	}
-%>
+%>   
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +16,7 @@
 <title>numForm</title>
 <script type="text/javascript">
 	function cntChange(){
+		
 		qwer.action="?"
 		qwer.submit()
 	}
@@ -20,7 +24,7 @@
 </script>
 </head>
 <body>
-cnt : <%=cnt %>
+
 <h1>numForm</h1>
 <form action="numReg.jsp" name="qwer">
 	<table border="">
@@ -28,14 +32,16 @@ cnt : <%=cnt %>
 			<td colspan="2" align="right">
 				칸수:
 				<select name="cnt" id="" onchange="cntChange()">
-				<%for(int i = 5; i<=30 ; i+=5){ 
+				<%  for(int i = 5; i<=30 ; i+=5){ 
 					String sel = "";
+					
 					if(i==cnt){
 						sel = "selected";
 					}
-				%>
 					
-					<option <%=sel %> > <%=i %></option>
+				%>
+					<option <%=sel %> ><%=i %></option>
+					
 					<%} %>
 				</select>
 			</td>
@@ -55,5 +61,6 @@ cnt : <%=cnt %>
 		</tr>
 	</table>
 </form>
+
 </body>
 </html>

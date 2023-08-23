@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>exArrIndex 처리</title>
+<title>ArrayIndex 처리</title>
 </head>
 <body>
-	<h1>exArrIndex 처리 입니다.</h1>
+<h1>ArrayIndex 처리 입니다.</h1>
+<%-- <%=exception.getMessage() %> --%>
+
 </body>
 </html>
