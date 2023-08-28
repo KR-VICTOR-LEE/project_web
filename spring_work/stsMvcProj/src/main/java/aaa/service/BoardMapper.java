@@ -1,0 +1,21 @@
+package aaa.service;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import aaa.model.BoardDTO;
+
+@Mapper
+public interface BoardMapper {
+		
+	List<BoardDTO> list();
+	
+	BoardDTO detail(int id);
+	
+	int insseerr(BoardDTO dto);
+	
+	int delettt(BoardDTO dto);
+	
+	int modifff(BoardDTO dto);
+}
